@@ -26,7 +26,7 @@ stages {
                 remote.allowAnyHosts = true
                 sshCommand remote: remote, command: "git clone https://github.com/WSBoos/ec2-test-api.git"
                 sshCommand remote: remote, command: "docker-compose -f ec2-test-api/docker-compose-deploy-front.yml up -d"
-                sshCommand remote: remote, command: "rm -r ec2-test-api.git"
+                sshCommand remote: remote, command: "rm -r ec2-test-api"
                     
                 }
           
