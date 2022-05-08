@@ -14,6 +14,25 @@ stages {
            }
        }
    }
+    
+    stage('Deployment') {
+        steps{
+                withCredentials([string(credentialsId: 'hostip', variable: 'ip'), string(credentialsId: 'username', variable: 'username'), string(credentialsId: 'password', variable: 'password')])  {
+                script {
+                def remote = [:]
+                remote.name = 'T09'
+                remote.host = "${ip}"
+                remote.user = "${username}"
+                remote.password = "${password}"
+                remote.allowAnyHosts = true
+                sshCommand remote: remote, command: "git clone https://github.com/WSBoos/boos-ec2-test-api.git"
+                sshCommand remote: remote, command: "docker-compose -f boos-ec2-test-api/Docker-compose.yml up -d"
+                sshCommand remote: remote, command: "rm -r boos-ec2-test-api"
+                    
+                }
+          
+             }
+        }
   
   }
 }
