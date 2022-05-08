@@ -17,9 +17,9 @@ stages {
                 remote.user = "${username}"
                 remote.password = "${password}"
                 remote.allowAnyHosts = true
-                sshCommand remote: remote, command: "git clone https://github.com/fluke1352/DEVELOPMENT-TOOLS-GET-A-PLUS.git"
-                sshCommand remote: remote, command: "docker-compose -f DEVELOPMENT-TOOLS-GET-A-PLUS/docker-compose-deploy-front.yml up -d"
-                sshCommand remote: remote, command: "rm -r DEVELOPMENT-TOOLS-GET-A-PLUS"
+                sshCommand remote: remote, command: "git clone https://github.com/WSBoos/ec2-test-api.git"
+                sshCommand remote: remote, command: "docker-compose -f ec2-test-api/docker-compose-deploy-front.yml up -d"
+                sshCommand remote: remote, command: "rm -r ec2-test-api.git"
                     
                 }
           
