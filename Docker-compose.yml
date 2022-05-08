@@ -1,0 +1,13 @@
+version: '3.8'
+services: 
+  front-end: 
+    image: wsboos/devtool:lastest
+    build: ./front-end
+    ports:
+      - "2000:80"
+  back-end:
+    image: wsboos/devtool-back:lastest 
+    build: ./back-test/app
+    ports:
+      - "4000:3000"
+  
