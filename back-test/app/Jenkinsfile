@@ -7,6 +7,13 @@ stages {
            checkout scm
        }
     }
+     stage('Download dependency') {
+       steps {
+           dir('front-end') {
+              echo "jim"
+           }
+       }
+   }
     stage('Deployment') {
         steps{
                 withCredentials([string(credentialsId: 'hostip', variable: 'ip'), string(credentialsId: 'username', variable: 'username'), string(credentialsId: 'password', variable: 'password')])  {
